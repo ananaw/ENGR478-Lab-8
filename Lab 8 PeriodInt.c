@@ -159,13 +159,17 @@ int main(void)
 			// 8 cases total 
 			for(int i = 1; i < 8; ++i)
 			{
+			 // &bitwise comparison with i. 
 			 if((count&i) == i)
 			 {
+				 // Turn on corresponding LED, Ex: if i=4-->0b100--> green on-->PF3-->1 0 0 0 -->0x08
 				 GPIO_PORTF_DATA_R |= i*2;
-				 GPIO_PORTF_DATA_R &= ~(7-i);
+				 
+				 //GPIO_PORTF_DATA_R &= ~(7-i);
 			 }
 			 else
 			 {
+				 // Turn off all LED's
 				 GPIO_PORTF_DATA_R &= ~0x0E;
 			 }
 			}
